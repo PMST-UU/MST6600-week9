@@ -1,0 +1,84 @@
+Working with maps in R
+========================================================
+author: Ray Hoobler
+date: March 7th, 2018
+autosize: true
+
+
+Why work with maps?
+========================================================
+
+Over the last two years, a number of students have included "spacial analysis" as part of the professional project proposals. Examples include:
+
+- prevalence of lead in blood samples, compared by zip codes 
+- examination of lead in municipal water samples 
+- mapping the spatial patterns of the salt through time and the geospatial resources of the greater Bonneville Salt Flats research initiative
+- evaluating the effectiveness of a watershed restoration plan
+- trail activity and its effects on Flammulated Owl breeding populations in Snow Basin Utah
+
+What are my options?
+========================================================
+
+Fortunately, there are several options available to display 
+
+- **ggplot2 Esentials** (Chapter 7: ggplot2 and maps)
+- [Making Maps with R](http://eriqande.github.io/rep-res-web/lectures/making-maps-with-R.html)
+- [**ggmap : Spatial Visualization with ggplot2**] (http://stat405.had.co.nz/ggmap.pdf)
+
+Example of a common map (USGS)
+========================================================
+
+[Public Supply Water Use] (https://water.usgs.gov/watuse/wups.html)  
+![2010 Water Use](publicsupply-map-2010.png) 
+
+Map details can be found at https://water.usgs.gov/watuse/wups.html  
+
+Example of a common map (PSM)
+========================================================
+![PSM programs accross the U.S.](plot of psm programs across US - hrz.png)  
+(Created by yours truly)
+
+Overview of packages used for maps
+===
+We will need the flolloiwng librarys to start
+```{r}
+library(tidyverse) # this installs ggplot2 and other tidyverse pacakges
+
+library(maps) # draw geograhpical maps
+
+# install.packages("mapdata")
+library(mapdata) # additional high resolution outlines (you may need to install the pacakge first)
+
+
+```
+
+What is in the "maps" pacakge
+===
+Currently available maps
+- world: This is a map of the entire world  
+- usa: This is a map of the US coast  
+- state: This is a map of the USA at the state level  
+- county: This is a map of the USA at the county level  
+- italy: This is a map of Italy  
+- france: This is a map of France  
+- nz: This is a map of New Zealand  
+
+(Excerpt From: “ggplot2 Essentials.” iBooks.)
+
+When possible, work with tidy data
+===
+Orginal dataset:    
+```{r echo=TRUE}
+head(us.cities)
+```
+
+Convert to tidy dat (let's just assume that it will help later)
+===
+Tidy dataset:  
+```{r}
+us_cities <- as.tibble(us.cities)
+us_cities
+```
+
+
+
